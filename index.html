@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ESPE Emprende - Portal de Emprendimientos Universitarios</title>
+    <link rel="icon" type="image/x-icon" href="./src/assets/icons/Logo_ESPE.ico">
+    <meta name="description"
+        content="Portal del ecosistema emprendedor de la Universidad de las Fuerzas Armadas ESPE" />
+
+    <!--Icons Remix-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+    <nav id="navbar" role="navigation" aria-label="navegacion principal">
+        <div class="container nvbar-inner">
+            <a href="#" class="navbar-brand" onclick="navigateTo('inicio'); return false;">
+                <img src="./src/assets/img/Logo_ESPE.png"
+                    alt="Logo Institucional Universidad de las Fuerzas Armadas - ESPE">
+                <div class="navbar-brand-text">
+                    <span class="title">Portal de Emprendimientos</span>
+                    <span class="subtitle">Universidad de las Fuerzas Armadas - ESPE</span>
+                </div>
+            </a>
+            <ul class="navnbar-nav" role="menubar">
+                <li role="none">
+                    <a href="#" class="navbar-link activate" data-page="inicio" role="menuitem">
+                        <i class="ri-home-4-line"></i> inicio
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#" class="nav-link" data-page="emprendimentos" role="menuitem">
+                        <i class="ri-store-2-line"></i> Emprendimentos
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#" class="nav-link" data-page="registro" role="menuitem">
+                        <i class="ri-add-circle-line"></i> Registro
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#" class="nav-link" data-page="dashboard" role="menuitem">
+                        <i class="ri-dashboard-line"></i> Panel de Estadísticas
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#" class="nav-link" data-page="contacto" role="menuitem">
+                        <i class="ri-mail-send-line"></i> Contacto
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-hamburger" aria-label="menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!--============================================
+                Inicio
+    ================================================-->
+
+    <main id="page-inicio" class="page">
+
+        <!--Hero-->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="ri-rocket-line"></i>
+                        Ecosistema Emprendedor ESPE 2026
+                    </div>
+                    <h1 class="hero-title" id="hero-title">
+                        Transforma tu <span>idea</span> en un emprendimento real.
+                    </h1>
+                    <p class="hero-desc">
+                        El portal de emprendimento de la Universidad de las Fuerzas Armadas ESPE es un espacio
+                        donde estudiantes, docentes y egresados registran, visibilizan y hacen crecer sus
+                        proyectos de innovación y emprendimento.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#" class="btn-primary" onclick="navigateTo('registro'); return false;">
+                            <i class="ri-add-circle-fill"></i> Registra tu emprendimento!
+                        </a>
+                        <a href="#" class="btn-outline" onclick="navigateTo('emprendimientos'); return false;">
+                            <i class="ri-store-2-line"></i> Ver Catálogo
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hero-card-stack">
+                        <div class="hero-stat-card">
+                            <div class="number" id="stat-total">0</div>
+                            <div class="label">Emprendimentos</div>
+                        </div>
+                        <div class="hero-stat-card">
+                            <div class="number" id="stat-cats">0</div>
+                            <div class="label">Categorías</div>
+                        </div>
+                        <div class="hero-stat-card">
+                            <div class="number" id="stat-activos">0</div>
+                            <div class="label">Activos</div>
+                        </div>
+                        <div class="hero-stat-card">
+                            <div class="number" id="stat-ventas" style="font-size:1.4rem">$0</div>
+                            <div class="label">Venta/Mes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
