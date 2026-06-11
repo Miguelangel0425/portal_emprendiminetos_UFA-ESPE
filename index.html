@@ -64,7 +64,7 @@
     </nav>
 
     <!--============================================
-                Inicio
+                    Pagina: Inicio
     ================================================-->
 
     <main id="page-inicio" class="page">
@@ -183,7 +183,7 @@
                     <div class="category-chip" data-cat="alimentos" role="listitem" tabindex="0">
                         <i class="ri-restaurant-line"></i> Alimentos
                     </div>
-                    <div class="category-chip" data-cat="Servicios" role="listitem" tabindex="0">
+                    <div class="category-chip" data-cat="servicios" role="listitem" tabindex="0">
                         <i class="ri-tools-line"></i>Servicios
                     </div>
                     <div class="category-chip" data-cat="educacion" role="listitem" tabindex="0">
@@ -202,6 +202,47 @@
                         <i class="ri-more-line"></i>Otros
                     </div>
                 </div>
+            </div>
+        </section>
+    </main>
+
+    <!--============================================
+                    Pagina: Emprendimientos
+    ================================================-->
+    <main id="page-emprendimientos" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h2><i class="ri-store-2-line"></i> Catálogo de Emprendimentos.</h2>
+                <p>Descubre los emprendimientos del sistema emprendedor ESPE</p>
+            </div>
+        </div>
+        <!--Filter-->
+        <div class="filter-bar" role="search">
+            <div class="container filter-bar-inner">
+                <div class="filter-search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" id="search-emp" placeholder="Buscar por nombre, código, responsable.."
+                        aria-label="Buscar empredimiento" />
+                </div>
+                <select id="filter-cat" class="filter-select" aria-label="Filtrar por categoría">
+                    <option value="all">Todas las categorías</option>
+                    <option value="tecnologia">💻 Tecnología</option>
+                    <option value="alimentos">🥗 Alimentos</option>
+                    <option value="servicios">🔧 Servicios</option>
+                    <option value="educacion">📚 Educación</option>
+                    <option value="ambiente">🌿 Ambiente</option>
+                    <option value="artesanias">🎨 Artesanías</option>
+                    <option value="salud">❤️ Salud</option>
+                    <option value="otros">⭐ Otros</option>
+                </select>
+                <a href="#" class="btn-primary" onclick="navigateTo('registro');return false";style="white-space:nowrap">
+                    <i class="ri-add-line"></i>Nuevo
+                </a>
+            </div>
+        </div>
+        <section class="card-section">
+            <div class="container">
+                <div class="card-grid" id="cards-container" aria-live="polite"></div>
             </div>
         </section>
     </main>
