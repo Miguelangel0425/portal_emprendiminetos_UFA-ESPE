@@ -235,7 +235,8 @@
                     <option value="salud">❤️ Salud</option>
                     <option value="otros">⭐ Otros</option>
                 </select>
-                <a href="#" class="btn-primary" onclick="navigateTo('registro');return false";style="white-space:nowrap">
+                <a href="#" class="btn-primary" onclick="navigateTo('registro');return false"
+                    ;style="white-space:nowrap">
                     <i class="ri-add-line"></i>Nuevo
                 </a>
             </div>
@@ -243,6 +244,152 @@
         <section class="card-section">
             <div class="container">
                 <div class="card-grid" id="cards-container" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+    <!--============================================
+                    Pagina: Registro
+    ================================================-->
+    <main id="page-registro" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h2><i class="ri-add-circle-line"></i> Registrar Emprendimento</h2>
+                <p>Complete el formulario para agregar tu proyecto al ecosistema ESPE</p>
+            </div>
+        </div>
+        <section class="registro-section">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-header">
+                        <i class="ri-file-add-line"></i>
+                    </div>
+                    <h3>Formularo de Registro</h3>
+                    <p>Todos los campos marcados con * son obligatorios</p>
+                </div>
+            </div>
+
+            <div class="form-body">
+                <form id="form-regitro" novalidate>
+                    <div class="form-gird">
+
+                        <!--Codigo-->
+                        <div class="form-group">
+                            <label for="f-codigo">
+                                <i class="ri-qr-code-line"></i> Código <span class="req">*</span>
+                            </label>
+                            <input type="text" id="f-codigo" class="form-control" placeholder="Ej: EMP-007" required
+                                maxlength="20" aria-describedby="err-f-codigo">
+                            <span class="error-msg" id="err-f-codigo">
+                                <i class="ri-error-warning-line"></i> El código es obligatorio
+                            </span>
+                        </div>
+                        <!--Nombre-->
+                        <div class="form-group">
+                            <label for="f-nombre">
+                                <i class="ri-store-2-line"></i> Nombre del Emprendimento <span class="req">*</span>
+                            </label>
+                            <input type="text" id="f-nombre" class="form-control" placeholder="Nombre del Proyecto"
+                                required maxlength="100" aria-describedby="err-f-nombre">
+                            <span class="error-msg" id="err-f-nombre">
+                                <i class="ri-error-warning-line"></i> El nombre es obligatorio
+                            </span>
+                        </div>
+                        <!--Responsable-->
+                        <div class="form-group">
+                            <label for="f-responsable">
+                                <i class="ri-user-line"></i> Responsable <span class="req">*</span>
+                            </label>
+                            <input type="text" id="f-responsable" class="form-control" placeholder="Nombre Completo"
+                                required maxlength="100" aria-describedby="err-f-responsable">
+                            <span class="error-msg" id="err-f-responsable">
+                                <i class="ri-error-warning-line"></i> El responsable es obligatorio
+                            </span>
+                        </div>
+                        <!--Carrera-->
+                        <div class="form-group">
+                            <label for="f-carrera">
+                                <i class="ri-building-line"></i> Carrera <span class="req">*</span>
+                            </label>
+                            <input type="text" id="f-carrera" class="form-control"
+                                placeholder="Ej: Ingeniería en Software" required maxlength="100"
+                                aria-describedby="err-f-carrera">
+                            <span class="error-msg" id="err-f-carrera">
+                                <i class="ri-error-warning-line"></i> La carrera es obligatoria
+                            </span>
+                        </div>
+                        <!--Categoria-->
+                        <div class="form-group">
+                            <label for="f-categoria">
+                                <i class="ri-price-tag-3-line"></i> Categoría <span class="req">*</span>
+                            </label>
+                            <select id="f-categoria" class="form-control filter-select" required>
+                                <option value="">-- Selecciona una categoría --</option>
+                                <option value="Tecnología">💻 Tecnología</option>
+                                <option value="Alimentos">🥗 Alimentos</option>
+                                <option value="Servicios">🔧 Servicios</option>
+                                <option value="Educación">📚 Educación</option>
+                                <option value="Ambiente">🌿 Ambiente</option>
+                                <option value="Artesanías">🎨 Artesanías</option>
+                                <option value="Salud">❤️ Salud</option>
+                                <option value="Otro">⭐ Otro</option>
+                            </select>
+                            <span class="error-msg" id="err-f-categoria">
+                                <i class="ri-error-warning-line"></i> Seleccione una categoría
+                            </span>
+                        </div>
+                        <!--Estado del Proyecto-->
+                        <div class="form-group">
+                            <label for="f-estado">
+                                <i class="ri-signal-wifi-line"></i> Estado <span class="req">*</span>
+                            </label>
+                            <select id="f-estado" class="form-control filter-select" required
+                                aria-describedby="err-f-estado">
+                                <option value="">-- Selecciona el estado del proyecto--</option>
+                                <option value="Idea">💡 Idea</option>
+                                <option value="Prototipo">🔬 Prototipo</option>
+                                <option value="En marcha">🚀 En marcha</option>
+                                <option value="En crecimiento">📈 En crecimiento</option>
+                            </select>
+                            <span class="error-msg" id="err-f-estado">
+                                <i class="ri-error-warning-line"></i> Seleccione el estado
+                            </span>
+                        </div>
+                        <!--Ventas-->
+                        <div class="form-group">
+                            <label for="f-ventas">
+                                <i class="ri-money-dollar-circle-line"></i> Ventas Mensuales Estimadas (USD) <span
+                                    class="req">*</span>
+                            </label>
+                            <input type="number" id="f-ventas" class="form-control" placeholder="0.00" required min="0"
+                                step="0.01" aria-describedby="err-f-ventas">
+                            <span class="error-msg" id="err-f-ventas">
+                                <i class="ri-error-warning-line"></i> Ingrese las ventas estimadas
+                            </span>
+                        </div>
+                        <!--Producto/Servicio-->
+                        <div class="form-group full">
+                            <label for="f-producto">
+                                <i class="ri-lightbulb-line"></i> Descripción del Producto o Servicio <span
+                                    class="req">*</span>
+                            </label>
+                            <textarea id="f-producto" class="form-control"
+                                placeholder="Describe qué ofrece tu emprendimiento, a quien va dirigido y que problema resuelve"
+                                required rows="4" maxlength="500" aria-describedby="err-f-producto"></textarea>
+                            <span class="error-msg" id="err-f-producto">
+                                <i class="ri-error-warning-line"></i> La descripción es obligatoria
+                            </span>
+                        </div>
+                    </div>
+                    <!--form-gird(boton y acciones)-->
+                    <div class="form-actions">
+                        <button type="button" id="btn-reset" class="btn-reset">
+                            <i class="ri-refresh-line"></i> Restablecer
+                        </button>
+                        <button type="submit"  class="btn-submin">
+                            <i class="ri-save-line"></i> Registrar Emprendimento
+                        </button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
