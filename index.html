@@ -334,14 +334,14 @@
                                     <select id="f-categoria" class="form-control filter-select" required
                                         aria-describedby="err-f-categoria">
                                         <option value="">-- Selecciona una categoría --</option>
-                                        <option value="Tecnología">💻 Tecnología</option>
-                                        <option value="Alimentos">🥗 Alimentos</option>
-                                        <option value="Servicios">🔧 Servicios</option>
-                                        <option value="Educación">📚 Educación</option>
-                                        <option value="Ambiente">🌿 Ambiente</option>
-                                        <option value="Artesanías">🎨 Artesanías</option>
-                                        <option value="Salud">❤️ Salud</option>
-                                        <option value="Otro">⭐ Otro</option>
+                                        <option value="tecnologia">💻 Tecnología</option>
+                                        <option value="alimentos">🥗 Alimentos</option>
+                                        <option value="servicios">🔧 Servicios</option>
+                                        <option value="educacion">📚 Educación</option>
+                                        <option value="ambiente">🌿 Ambiente</option>
+                                        <option value="artesanias">🎨 Artesanías</option>
+                                        <option value="salud">❤️ Salud</option>
+                                        <option value="otro">⭐ Otro</option>
                                     </select>
                                     <span class="error-msg" id="err-f-categoria">
                                         <i class="ri-error-warning-line"></i> Selecciona una categoría
@@ -405,6 +405,108 @@
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--Dashboard-->
+    <main id="page-dashboard" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h2><i class="ri-dashboard-line"></i> Dashboard &amp; Estadísticas</h2>
+                <p>Análisis general del ecosistema emprendedor ESPE</p>
+            </div>
+        </div>
+        <section class="dashboard-section">
+            <div class="container">
+                <!--KPI's-->
+                <div class="kpi-grid" aria-label="Indicadores Claves">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ri-store-2-line"></i></div>
+                        <div>
+                            <div class="kpi-value" id="kpi-total">0</div>
+                            <div class="kpi-label">Total de Emprendimentos</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ri-money-dollar-circle-line"></i></div>
+                        <div>
+                            <div class="kpi-value" id="kpi-ventas">$0</div>
+                            <div class="kpi-label">Ventas totales / mes</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ri-bar-chart-line"></i></div>
+                        <div>
+                            <div class="kpi-value" id="kpi-prom">$0</div>
+                            <div class="kpi-label">Promedio de ventas</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ri-price-tag-3-line"></i></div>
+                        <div>
+                            <div class="kpi-value" id="kpi-categoria">0</div>
+                            <div class="kpi-label">Categorias con proyectos</div>
+                        </div>
+                    </div>
+                </div>
+                <!--Top Emprendimientos-->
+                <div class="top-emp-card" id="top-emp-card" aria-live="polite">
+                    <span class="trophy">🏆</span>
+                    <div>
+                        <h4>Emprendimiento con mayor volumen de ventas</h4>
+                        <div class="name" id="top-nombre">—</div>
+                        <div class="ventas" id="top-ventas">—</div>
+                    </div>
+                </div>
+                <div class="top-emp-card" id="top-emp-hidden" style="display:none">
+                    <span class="trophy">🏆</span>
+                    <div class="top-emp-card-hidden">Sin registros aún — ¡Sé el primero!</div>
+                </div>
+                <!--controles para la tabla-->
+                <div class="dash-control">
+                    <h3><i class="ri-table-line"></i> Registros</h3>
+                    <div class="filter-search" style="flex:0 1 280px">
+                        <i class="ri-search-line"></i>
+                        <input type="text" id="search-dash" placeholder="Buscar..." aria-label="Buscar en tabla">
+                    </div>
+                    <select id="filter-dash" class="filter-select" aria-label="Filtrar tabla por categoria">
+                        <option value="all">Todas</option>
+                        <option value="tecnolgia">Tecnología</option>
+                        <option value="alimentos">Alimentos</option>
+                        <option value="servicios">servicios</option>
+                        <option value="educacion">Educación</option>
+                        <option value="ambiente">Ambiente</option>
+                        <option value="artesanias">Artesanías</option>
+                        <option value="salud">Salud</option>
+                        <option value="otrs">Otros</option>
+                    </select>
+                    <a href="#" class="btn-primary" onclick="navigateTo('registro'); return false;"
+                        style="white-space:nowrap">
+                        <i class="ri-add-line"></i> Nuevo
+                    </a>
+                </div>
+                <!--Tabla-->
+                <div class="table-wrapper">
+                    <table class="data-table" aria-label="Tabla de emprendimientos">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Responsable</th>
+                                <th>Carrera</th>
+                                <th>Categoría</th>
+                                <th>Ventas/mes</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-body" aria-live="polite">
+                            <tr>
+                                <td colspan="8" class="table-empty">Cargando...</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
