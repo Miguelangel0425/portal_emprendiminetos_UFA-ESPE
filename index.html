@@ -30,15 +30,15 @@
                     <span class="subtitle">Universidad de las Fuerzas Armadas - ESPE</span>
                 </div>
             </a>
-            <ul class="navnbar-nav" role="menubar">
+            <ul class="navbar-nav" role="menubar">
                 <li role="none">
-                    <a href="#" class="navbar-link activate" data-page="inicio" role="menuitem">
+                    <a href="#" class="nav-link activate" data-page="inicio" role="menuitem">
                         <i class="ri-home-4-line"></i> inicio
                     </a>
                 </li>
                 <li role="none">
-                    <a href="#" class="nav-link" data-page="emprendimentos" role="menuitem">
-                        <i class="ri-store-2-line"></i> Emprendimentos
+                    <a href="#" class="nav-link" data-page="emprendimientos" role="menuitem">
+                        <i class="ri-store-2-line"></i> Emprendimientos
                     </a>
                 </li>
                 <li role="none">
@@ -98,7 +98,7 @@
                     <div class="hero-card-stack">
                         <div class="hero-stat-card">
                             <div class="number" id="stat-total">0</div>
-                            <div class="label">Emprendimentos</div>
+                            <div class="label">Emprendimientos</div>
                         </div>
                         <div class="hero-stat-card">
                             <div class="number" id="stat-cats">0</div>
@@ -212,7 +212,7 @@
     <main id="page-emprendimientos" class="page">
         <div class="page-header">
             <div class="container">
-                <h2><i class="ri-store-2-line"></i> Catálogo de Emprendimentos.</h2>
+                <h2><i class="ri-store-2-line"></i> Catálogo de Emprendimientos.</h2>
                 <p>Descubre los emprendimientos del sistema emprendedor ESPE</p>
             </div>
         </div>
@@ -241,9 +241,9 @@
                 </a>
             </div>
         </div>
-        <section class="card-section">
+        <section class="cards-section">
             <div class="container">
-                <div class="card-grid" id="cards-container" aria-live="polite"></div>
+                <div class="cards-grid" id="cards-container" aria-live="polite"></div>
             </div>
         </section>
     </main>
@@ -341,7 +341,7 @@
                                         <option value="ambiente">🌿 Ambiente</option>
                                         <option value="artesanias">🎨 Artesanías</option>
                                         <option value="salud">❤️ Salud</option>
-                                        <option value="otro">⭐ Otro</option>
+                                        <option value="otros">⭐ Otrso</option>
                                     </select>
                                     <span class="error-msg" id="err-f-categoria">
                                         <i class="ri-error-warning-line"></i> Selecciona una categoría
@@ -425,7 +425,7 @@
                         <div class="kpi-icon"><i class="ri-store-2-line"></i></div>
                         <div>
                             <div class="kpi-value" id="kpi-total">0</div>
-                            <div class="kpi-label">Total de Emprendimentos</div>
+                            <div class="kpi-label">Total de Emprendimientos</div>
                         </div>
                     </div>
                     <div class="kpi-card">
@@ -445,7 +445,7 @@
                     <div class="kpi-card">
                         <div class="kpi-icon"><i class="ri-price-tag-3-line"></i></div>
                         <div>
-                            <div class="kpi-value" id="kpi-categoria">0</div>
+                            <div class="kpi-value" id="kpi-categorias">0</div>
                             <div class="kpi-label">Categorias con proyectos</div>
                         </div>
                     </div>
@@ -464,7 +464,7 @@
                     <div class="top-emp-card-hidden">Sin registros aún — ¡Sé el primero!</div>
                 </div>
                 <!--controles para la tabla-->
-                <div class="dash-control">
+                <div class="dash-controls">
                     <h3><i class="ri-table-line"></i> Registros</h3>
                     <div class="filter-search" style="flex:0 1 280px">
                         <i class="ri-search-line"></i>
@@ -479,7 +479,7 @@
                         <option value="ambiente">Ambiente</option>
                         <option value="artesanias">Artesanías</option>
                         <option value="salud">Salud</option>
-                        <option value="otrs">Otros</option>
+                        <option value="otros">Otros</option>
                     </select>
                     <a href="#" class="btn-primary" onclick="navigateTo('registro'); return false;"
                         style="white-space:nowrap">
@@ -498,12 +498,11 @@
                                 <th>Categoría</th>
                                 <th>Ventas/mes</th>
                                 <th>Estado</th>
-                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="tabla-body" aria-live="polite">
                             <tr>
-                                <td colspan="8" class="table-empty">Cargando...</td>
+                                <td colspan="7" class="table-empty">Cargando...</td>
                             </tr>
                         </tbody>
                     </table>
@@ -515,20 +514,20 @@
     <main id="page-contacto" class="page">
         <div class="page-header">
             <div class="container">
-                <div class="contacto-gird">
+                <div class="contacto-grid">
                     <!--Informacion de la Institucion-->
-                    <div class="contacto-info-gird">
+                    <div class="contact-info-card">
                         <h3>Universidad de las Fuerzas Armadas - ESPE</h3>
                         <p>Dirección de Innovación, Investigación y Emprendimento</p>
-                        <div class="contacto-info-list">
-                            <div class="contacto-info-item">
+                        <div class="contact-info-list">
+                            <div class="contact-info-item">
                                 <div class="icon-wrap"><i class="ri-map-pin-line"></i></div>
                                 <div>
                                     <strong>Sede Principal</strong>
                                     <span>Av. General Rumiñahui s/n, Sangolquo, Ecuador</span>
                                 </div>
                             </div>
-                            <div class="contacto-info-item">
+                            <div class="contact-info-item">
                                 <div class="icon-wrap"><i class="ri-phone-line"></i></div>
                                 <div>
                                     <strong>Teléfono</strong>
@@ -614,7 +613,7 @@
                 <div class="footer-brand">
                     <img src="./src/assets/img/Logo_ESPE.png" alt="Universidad de las Fuerzas Armadas - ESPE" />
                     <p>Portal del ecosistema emprendedor de la Universidad de las Fuerzas Armadas - ESPE. Fomentando la
-                        innovación y el emprendimiento desde 1992.
+                        innovación y el emprendimiento desde 1922.
                     </p>
                 </div>
                 <div>
@@ -622,7 +621,7 @@
                         <h4>Navegación</h4>
                         <ul>
                             <li><a href="#" onclick="navigateTo('inicio'); return false;">Inicio</a></li>
-                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">Emprendimentos</a>
+                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">Emprendimientos</a>
                             </li>
                             <li><a href="#" onclick="navigateTo('registro'); return false;">Registro</a></li>
                             <li><a href="#" onclick="navigateTo('dashboard'); return false;">Dashboard</a></li>
@@ -643,7 +642,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>&copy; 2026 Universidad de las Fuerzas Armadas ESPE - Portal de Emprendimentos</span>
+                <span>&copy; 2026 Universidad de las Fuerzas Armadas ESPE - Portal de Emprendimientos</span>
                 <span>Desarrollado con <span style="color:var(--espe-gold)">♥</span></span>
             </div>
         </div>
