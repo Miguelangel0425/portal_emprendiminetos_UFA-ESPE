@@ -82,7 +82,7 @@ button {
 
 input,
 select,
-text {
+textarea {
     font-family: inherit;
     outline: none;
 }
@@ -135,7 +135,7 @@ text {
     border-radius: 100px;
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 5px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
@@ -217,7 +217,7 @@ text {
 .navbar-brand img {
     height: 46px;
     width: auto;
-    filter: brightness(0) invert(1);
+    filter: none;
     transition: var(--transition);
 }
 
@@ -235,7 +235,7 @@ text {
     font-weight: 800;
     font-size: 0.95rem;
     color: var(--espe-white);
-    letter-spacing: 3px;
+    letter-spacing: 0.3px;
     line-height: 1.1;
 }
 
@@ -249,7 +249,7 @@ text {
 .navbar-nav {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 4px;
     padding: 8px 16px;
     border-radius: 8px;
     font-family: "Montserrat", sans-serif;
@@ -1436,7 +1436,7 @@ textarea.form-control {
 
 .footer-brand img {
     height: 50px;
-    filter: brightness(0) invert(1);
+    filter: none;
     opacity: .85;
     margin-bottom: 14px;
 }
