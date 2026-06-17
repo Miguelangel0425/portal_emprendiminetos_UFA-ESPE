@@ -23,8 +23,7 @@
     <nav id="navbar" role="navigation" aria-label="navegacion principal">
         <div class="container navbar-inner">
             <a href="#" class="navbar-brand" onclick="navigateTo('inicio'); return false;">
-                <img src="./src/assets/img/Logo_ESPE.png"
-                    alt="Logo Institucional Universidad de las Fuerzas Armadas - ESPE">
+                <img src="./src/assets/img/Logo_ESPE.png" alt="Logo Institucional Universidad de las Fuerzas Armadas - ESPE">
                 <div class="navbar-brand-text">
                     <span class="title">Portal de Emprendimientos</span>
                     <span class="subtitle">Universidad de las Fuerzas Armadas - ESPE</span>
@@ -32,7 +31,7 @@
             </a>
             <ul class="navbar-nav" role="menubar">
                 <li role="none">
-                    <a href="#" class="nav-link activate" data-page="inicio" role="menuitem">
+                    <a href="#" class="nav-link active" data-page="inicio" role="menuitem">
                         <i class="ri-home-4-line"></i> inicio
                     </a>
                 </li>
@@ -236,7 +235,7 @@
                     <option value="otros">⭐ Otros</option>
                 </select>
                 <a href="#" class="btn-primary" onclick="navigateTo('registro');return false"
-                    ;style="white-space:nowrap">
+                    style="white-space:nowrap">
                     <i class="ri-add-line"></i>Nuevo
                 </a>
             </div>
@@ -356,10 +355,10 @@
                                     <select id="f-estado" class="form-control filter-select" required
                                         aria-describedby="err-f-estado">
                                         <option value="">-- Selecciona el estado --</option>
-                                        <option value="Idea">💡 Idea</option>
-                                        <option value="Prototipo">🔬 Prototipo</option>
-                                        <option value="En marcha">🚀 En marcha</option>
-                                        <option value="En crecimiento">📈 En crecimiento</option>
+                                        <option value="idea">💡 Idea</option>
+                                        <option value="prototipo">🔬 Prototipo</option>
+                                        <option value="enMarcha">🚀 En marcha</option>
+                                        <option value="enCrecimiento">📈 En crecimiento</option>
                                     </select>
                                     <span class="error-msg" id="err-f-estado">
                                         <i class="ri-error-warning-line"></i> Selecciona el estado
@@ -605,6 +604,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </main>
     <!--Footer-->
     <footer class="footer" role="contentinfo">

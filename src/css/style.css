@@ -110,7 +110,7 @@ textarea {
 }
 
 .section-title {
-    text-align: clamp(1.6rem, 3vw, 2.4rem);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
     font-weight: 800;
     color: var(--espe-green-dark);
     text-align: center;
@@ -184,13 +184,24 @@ textarea {
     display: none;
 }
 
-.page-active {
+.page.active {
     display: block;
     animation: fadeIn 0.4s ease;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /*navegacion*/
-.navbar {
+#navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -250,6 +261,12 @@ textarea {
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     padding: 8px 16px;
     border-radius: 8px;
     font-family: "Montserrat", sans-serif;
@@ -401,7 +418,7 @@ textarea {
     font-weight: 700;
     font-size: .95rem;
     border: 2px solid rgba(255, 255, 255, .4);
-    transition: var(--transitions);
+    transition: var(--transition);
 }
 
 .btn-outline:hover {
