@@ -2,10 +2,10 @@
 
 /*variables*/
 :root {
-    --espe-green: #1f9d5c;
-    --espe-green-dark: #0f7a44;
-    --espe-green-mid: #2bb96e;
-    --espe-green-pale: #eaf9f0;
+    --espe-green: #00713d;
+    --espe-green-dark: #004d29;
+    --espe-green-mid: #009951;
+    --espe-green-pale: #e6f4ec;
     --espe-gold: #e0a526;
     --espe-gold-dark: #c4861a;
     --espe-gold-light: #ffd97a;
@@ -20,9 +20,9 @@
     --espe-blue: #1a5276;
     --espe-blue-pale: #e7f0f8;
 
-    --shadow-sm: 0 2px 8px rgba(15, 122, 68, 0.1);
-    --shadow-md: 0 6px 24px rgba(15, 122, 68, 0.16);
-    --shadow-lg: 0 12px 48px rgba(15, 122, 68, 0.2);
+    --shadow-sm: 0 2px 8px rgba(0, 77, 41, 0.1);
+    --shadow-md: 0 6px 24px rgba(0, 77, 41, 0.16);
+    --shadow-lg: 0 12px 48px rgba(0, 77, 41, 0.2);
     --radius: 12px;
     --radius-lg: 20px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -700,7 +700,7 @@ textarea {
 
 .filter-search:focus-within {
     border-color: var(--espe-green);
-    box-shadow: 0 0 0 3px rgba(31, 157, 92, .12);
+    box-shadow: 0 0 0 3px rgba(0, 113, 61, .12);
 }
 
 .filter-search i {
@@ -717,7 +717,7 @@ textarea {
 
 .filter-select {
     appearance: none;
-    background: var(--espe-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231f9d5c' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
+    background: var(--espe-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300713d' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
     border: 1.5px solid #dde5e0;
     border-radius: 8px;
     padding: 10px 36px 10px 14px;
@@ -730,7 +730,7 @@ textarea {
 
 .filter-select:focus {
     border-color: var(--espe-green);
-    box-shadow: 0 0 0 3px rgba(31, 157, 92, .12);
+    box-shadow: 0 0 0 3px rgba(0, 113, 61, .12);
 }
 
 .cards-section {
@@ -983,7 +983,7 @@ textarea {
 .form-control:focus {
     border-color: var(--espe-green);
     background: white;
-    box-shadow: 0 0 0 3px rgba(31, 157, 92, .12);
+    box-shadow: 0 0 0 3px rgba(0, 113, 61, .12);
 }
 
 .form-control.error {
@@ -1011,6 +1011,19 @@ textarea.form-control {
     display: block;
 }
 
+.field-hint {
+    font-size: .78rem;
+    color: #888;
+    font-weight: 600;
+    display: block;
+}
+
+.form-control[readonly] {
+    background: #edf2ef;
+    color: #5a6b62;
+    cursor: not-allowed;
+}
+
 .form-actions {
     display: flex;
     gap: 12px;
@@ -1032,7 +1045,7 @@ textarea.form-control {
     font-weight: 700;
     font-size: .95rem;
     transition: var(--transition);
-    box-shadow: 0 4px 14px rgba(31, 157, 92, .32);
+    box-shadow: 0 4px 14px rgba(0, 113, 61, .32);
 }
 
 .btn-submit:hover {
