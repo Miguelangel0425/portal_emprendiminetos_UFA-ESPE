@@ -23,7 +23,8 @@
     <nav id="navbar" role="navigation" aria-label="navegacion principal">
         <div class="container navbar-inner">
             <a href="#" class="navbar-brand" onclick="navigateTo('inicio'); return false;">
-                <img src="./src/assets/img/Logo_ESPE.png" alt="Logo Institucional Universidad de las Fuerzas Armadas - ESPE">
+                <img src="./src/assets/img/Logo_ESPE.png"
+                    alt="Logo Institucional Universidad de las Fuerzas Armadas - ESPE">
                 <div class="navbar-brand-text">
                     <span class="title">Portal de Emprendimientos</span>
                     <span class="subtitle">Universidad de las Fuerzas Armadas - ESPE</span>
@@ -275,12 +276,12 @@
                                 <!-- Código -->
                                 <div class="form-group">
                                     <label for="f-codigo">
-                                        <i class="ri-qr-code-line"></i> Código <span class="req">*</span>
+                                        <i class="ri-qr-code-line"></i> Código
                                     </label>
-                                    <input type="text" id="f-codigo" class="form-control" placeholder="Ej: EMP-007"
-                                        required maxlength="20" aria-describedby="err-f-codigo" />
-                                    <span class="error-msg" id="err-f-codigo">
-                                        <i class="ri-error-warning-line"></i> El código es obligatorio
+                                    <input type="text" id="f-codigo" class="form-control" readonly maxlength="20"
+                                        aria-describedby="hint-f-codigo" />
+                                    <span class="field-hint" id="hint-f-codigo">
+                                        <i class="ri-information-line"></i> Se genera automáticamente al registrar
                                     </span>
                                 </div>
 
@@ -537,7 +538,7 @@
                                 <div class="icon-wrap"><i class="ri-mail-line"></i></div>
                                 <div>
                                     <strong>Correo Electrónico</strong>
-                                    <span>emprendimietos@espe.edu.ec</span>
+                                    <span>emprendimientos@espe.edu.ec</span>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -616,29 +617,48 @@
                         innovación y el emprendimiento desde 1922.
                     </p>
                 </div>
-                <div>
-                    <div class="footer-col">
-                        <h4>Navegación</h4>
-                        <ul>
-                            <li><a href="#" onclick="navigateTo('inicio'); return false;">Inicio</a></li>
-                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">Emprendimientos</a>
-                            </li>
-                            <li><a href="#" onclick="navigateTo('registro'); return false;">Registro</a></li>
-                            <li><a href="#" onclick="navigateTo('dashboard'); return false;">Dashboard</a></li>
-                            <li><a href="#" onclick="navigateTo('contacto'); return false;">Contacto</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Categorías</h4>
-                        <ul>
-                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">💻 Tecnología</a>
-                            </li>
-                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">🥗 Alimentos</a></li>
-                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">🌿 Ambiente</a></li>
-                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">❤️ Salud</a></li>
-                            <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">📚 Educación</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('inicio'); return false;">Inicio</a></li>
+                        <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">Emprendimientos</a>
+                        </li>
+                        <li><a href="#" onclick="navigateTo('registro'); return false;">Registro</a></li>
+                        <li><a href="#" onclick="navigateTo('dashboard'); return false;">Dashboard</a></li>
+                        <li><a href="#" onclick="navigateTo('contacto'); return false;">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">💻 Tecnología</a>
+                        </li>
+                        <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">🥗 Alimentos</a></li>
+                        <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">🌿 Ambiente</a></li>
+                        <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">❤️ Salud</a></li>
+                        <li><a href="#" onclick="navigateTo('emprendimientos'); return false;">📚 Educación</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="ri-map-pin-line"></i>
+                            <span>Av. General Rumiñahui s/n, Sangolquí, Ecuador</span>
+                        </li>
+                        <li>
+                            <i class="ri-phone-line"></i>
+                            <span>+593 (2) 398-9400</span>
+                        </li>
+                        <li>
+                            <i class="ri-mail-line"></i>
+                            <span>emprendimientos@espe.edu.ec</span>
+                        </li>
+                        <li>
+                            <i class="ri-global-line"></i>
+                            <span>www.espe.edu.ec</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">

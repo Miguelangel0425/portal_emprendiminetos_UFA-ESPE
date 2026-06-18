@@ -194,6 +194,7 @@ textarea {
         opacity: 0;
         transform: translateY(8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1459,8 +1460,8 @@ textarea.form-control {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+    gap: 40px;
     margin-bottom: 40px;
 }
 
@@ -1500,6 +1501,25 @@ textarea.form-control {
 
 .footer-col ul li a:hover {
     color: var(--espe-gold-light);
+}
+
+.footer-contact-list {
+    gap: 14px;
+}
+
+.footer-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: .85rem;
+    line-height: 1.5;
+}
+
+.footer-contact-list li i {
+    color: var(--espe-gold);
+    font-size: 1.05rem;
+    margin-top: 1px;
+    flex-shrink: 0;
 }
 
 .footer-bottom {
@@ -1632,7 +1652,11 @@ textarea.form-control {
     }
 
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
     }
 
     .contacto-grid {

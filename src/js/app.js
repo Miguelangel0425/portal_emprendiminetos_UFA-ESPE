@@ -95,13 +95,27 @@ function navigateTo(page) {
     if (page === 'inicio') renderHeroStats();
     if (page === 'dashboard') { renderDashboard(); renderTabla(); }
     if (page === 'emprendimientos') renderCards();
+    if (page === 'registro') actualizarCodigoAutomatico();
 }
 
-/*Generador de ID */
+/*Generador automatico de codigo*/
 
-function genID() {
-    const n = (APP.emprendimientos.length + 1).toString().padStart(3, '0');
-    return `EMP-${n}`;
+function genCodigo() {
+    let maxNum = 0;
+    APP.emprendimientos.forEach(e => {
+        const match = /EMP-(\d+)/.exec(e.codigo || '');
+        if (match) {
+            const num = parseInt(match[1], 10);
+            if (num > maxNum) maxNum = num;
+        }
+    });
+    const siguiente = (maxNum + 1).toString().padStart(3, '0');
+    return `EMP-${siguiente}`;
+}
+
+function actualizarCodigoAutomatico() {
+    const campo = document.getElementById('f-codigo');
+    if (campo) campo.value = genCodigo();
 }
 
 /*Formato de Moneda*/
@@ -301,14 +315,19 @@ function initForm() {
     const form = document.getElementById('form-registro');
     if (!form) return;
 
+    //precargar el codigo autogenerado al abrir el formulario
+    actualizarCodigoAutomatico();
+
     form.addEventListener('submit', e => {
         e.preventDefault();
 
         if (!validarForm(form)) return;
 
+        const codigoGenerado = genCodigo();
+
         const datos = {
-            id: genID(),
-            codigo: getVal('f-codigo'),
+            id: codigoGenerado,
+            codigo: codigoGenerado,
             nombre: getVal('f-nombre'),
             responsable: getVal('f-responsable'),
             carrera: getVal('f-carrera'),
@@ -319,16 +338,10 @@ function initForm() {
             emoji: CATEGORIA_EMOJI[getVal('f-categoria')] || '⭐'
         }
 
-        //Verificar duplicados de codigo
-        if (APP.emprendimientos.some(e => e.codigo === datos.codigo)) {
-            showToast('Codigo duplicado', 'Ya existe un emprendimiento con ese codigo', 'error');
-            return;
-        }
-
         APP.emprendimientos.push(datos);
         guardarEnLS();
         renderHeroStats();
-        showToast('¡Registrado!', `"${datos.nombre}" fue guardado exitosamente.`);
+        showToast('¡Registrado!', `"${datos.nombre}" fue guardado con el código ${datos.codigo}.`);
         resetForm(form);
         setTimeout(() => navigateTo('emprendimientos'), 1400);
     });
@@ -364,6 +377,7 @@ function resetForm(form){
     form.reset();
     form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
     form.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    actualizarCodigoAutomatico();
     showToast('Formulario restablecido', 'Los campos han sido limpiados.');
 }
 
