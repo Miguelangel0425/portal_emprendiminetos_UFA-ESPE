@@ -194,7 +194,6 @@ textarea {
         opacity: 0;
         transform: translateY(8px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -784,6 +783,47 @@ textarea {
     right: 12px;
 }
 
+.card-actions {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: var(--transition);
+}
+
+.emp-card:hover .card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .92);
+    color: var(--espe-green-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+    transition: var(--transition);
+}
+
+.card-action-btn:hover {
+    background: var(--espe-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.card-action-btn.danger:hover {
+    background: var(--espe-red);
+    color: white;
+}
+
 .card-cuerpo,
 .emp-card-body {
     padding: 20px;
@@ -1336,6 +1376,44 @@ textarea.form-control {
     color: var(--espe-gold-dark);
 }
 
+.td-actions {
+    white-space: nowrap;
+}
+
+.table-action-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background: var(--espe-green-pale);
+    color: var(--espe-green-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .95rem;
+    margin-right: 6px;
+    transition: var(--transition);
+}
+
+.table-action-btn:last-child {
+    margin-right: 0;
+}
+
+.table-action-btn:hover {
+    background: var(--espe-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.table-action-btn.danger {
+    background: var(--espe-red-pale);
+    color: var(--espe-red);
+}
+
+.table-action-btn.danger:hover {
+    background: var(--espe-red);
+    color: white;
+}
+
 .table-empty {
     text-align: center;
     padding: 60px 20px;
@@ -1620,6 +1698,46 @@ textarea.form-control {
     justify-content: flex-end;
 }
 
+/* Modal de confirmacion (eliminar) */
+.modal-header-danger {
+    background: linear-gradient(135deg, var(--espe-red-dark), var(--espe-red));
+    border-bottom-color: var(--espe-red-dark);
+}
+
+.modal-confirm {
+    max-width: 440px;
+}
+
+.modal-confirm-text {
+    font-size: .98rem;
+    color: var(--espe-gray);
+    line-height: 1.7;
+}
+
+.modal-confirm-text strong {
+    color: var(--espe-dark);
+}
+
+.btn-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--espe-red);
+    color: white;
+    padding: 13px 22px;
+    border-radius: var(--radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: .95rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(216, 57, 44, .32);
+}
+
+.btn-danger:hover {
+    background: var(--espe-red-dark);
+    transform: translateY(-2px);
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -1665,6 +1783,11 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+    .card-actions {
+        opacity: 1;
+        transform: none;
+    }
+
     .navbar-nav {
         display: none;
         position: absolute;

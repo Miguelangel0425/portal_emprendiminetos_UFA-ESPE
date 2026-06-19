@@ -273,7 +273,7 @@
                         <form id="form-registro" novalidate>
                             <div class="form-grid">
 
-                                <!-- Código -->
+                                <!-- Código (autogenerado) -->
                                 <div class="form-group">
                                     <label for="f-codigo">
                                         <i class="ri-qr-code-line"></i> Código
@@ -498,11 +498,12 @@
                                 <th>Categoría</th>
                                 <th>Ventas/mes</th>
                                 <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="tabla-body" aria-live="polite">
                             <tr>
-                                <td colspan="7" class="table-empty">Cargando...</td>
+                                <td colspan="8" class="table-empty">Cargando...</td>
                             </tr>
                         </tbody>
                     </table>
@@ -538,7 +539,7 @@
                                 <div class="icon-wrap"><i class="ri-mail-line"></i></div>
                                 <div>
                                     <strong>Correo Electrónico</strong>
-                                    <span>emprendimientos@espe.edu.ec</span>
+                                    <span>emprendimietos@espe.edu.ec</span>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -652,7 +653,11 @@
                         </li>
                         <li>
                             <i class="ri-mail-line"></i>
-                            <span>emprendimientos@espe.edu.ec</span>
+                            <span>emprendimietos@espe.edu.ec</span>
+                        </li>
+                        <li>
+                            <i class="ri-time-line"></i>
+                            <span>Lunes a Viernes, 8:00 - 17:00</span>
                         </li>
                         <li>
                             <i class="ri-global-line"></i>
@@ -668,8 +673,164 @@
         </div>
     </footer>
 
+    <!--Modal: Editar Emprendimiento-->
+    <div id="modal-editar" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-editar-title">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-editar-title"><i class="ri-edit-2-line"></i> Editar Emprendimiento</h3>
+                <button type="button" class="modal-close" data-close-modal="modal-editar" aria-label="Cerrar">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-editar" novalidate>
+                    <input type="hidden" id="e-id" />
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="e-codigo">
+                                <i class="ri-qr-code-line"></i> Código
+                            </label>
+                            <input type="text" id="e-codigo" class="form-control" readonly />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="e-nombre">
+                                <i class="ri-store-2-line"></i> Nombre del Emprendimiento <span class="req">*</span>
+                            </label>
+                            <input type="text" id="e-nombre" class="form-control" required maxlength="100"
+                                aria-describedby="err-e-nombre" />
+                            <span class="error-msg" id="err-e-nombre">
+                                <i class="ri-error-warning-line"></i> El nombre es obligatorio
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="e-responsable">
+                                <i class="ri-user-line"></i> Responsable <span class="req">*</span>
+                            </label>
+                            <input type="text" id="e-responsable" class="form-control" required maxlength="100"
+                                aria-describedby="err-e-responsable" />
+                            <span class="error-msg" id="err-e-responsable">
+                                <i class="ri-error-warning-line"></i> El responsable es obligatorio
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="e-carrera">
+                                <i class="ri-building-line"></i> Carrera / Departamento <span class="req">*</span>
+                            </label>
+                            <input type="text" id="e-carrera" class="form-control" required maxlength="100"
+                                aria-describedby="err-e-carrera" />
+                            <span class="error-msg" id="err-e-carrera">
+                                <i class="ri-error-warning-line"></i> La carrera es obligatoria
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="e-categoria">
+                                <i class="ri-price-tag-3-line"></i> Categoría <span class="req">*</span>
+                            </label>
+                            <select id="e-categoria" class="form-control filter-select" required
+                                aria-describedby="err-e-categoria">
+                                <option value="tecnologia">💻 Tecnología</option>
+                                <option value="alimentos">🥗 Alimentos</option>
+                                <option value="servicios">🔧 Servicios</option>
+                                <option value="educacion">📚 Educación</option>
+                                <option value="ambiente">🌿 Ambiente</option>
+                                <option value="artesanias">🎨 Artesanías</option>
+                                <option value="salud">❤️ Salud</option>
+                                <option value="otros">⭐ Otros</option>
+                            </select>
+                            <span class="error-msg" id="err-e-categoria">
+                                <i class="ri-error-warning-line"></i> Selecciona una categoría
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="e-estado">
+                                <i class="ri-signal-wifi-line"></i> Estado <span class="req">*</span>
+                            </label>
+                            <select id="e-estado" class="form-control filter-select" required
+                                aria-describedby="err-e-estado">
+                                <option value="idea">💡 Idea</option>
+                                <option value="prototipo">🔬 Prototipo</option>
+                                <option value="enMarcha">🚀 En marcha</option>
+                                <option value="enCrecimiento">📈 En crecimiento</option>
+                            </select>
+                            <span class="error-msg" id="err-e-estado">
+                                <i class="ri-error-warning-line"></i> Selecciona el estado
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="e-ventas">
+                                <i class="ri-money-dollar-circle-line"></i> Ventas Mensuales Estimadas (USD)
+                                <span class="req">*</span>
+                            </label>
+                            <input type="number" id="e-ventas" class="form-control" required min="0" step="0.01"
+                                aria-describedby="err-e-ventas" />
+                            <span class="error-msg" id="err-e-ventas">
+                                <i class="ri-error-warning-line"></i> Ingresa las ventas estimadas
+                            </span>
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="e-producto">
+                                <i class="ri-lightbulb-line"></i> Descripción del Producto o Servicio
+                                <span class="req">*</span>
+                            </label>
+                            <textarea id="e-producto" class="form-control" required rows="4" maxlength="500"
+                                aria-describedby="err-e-producto"></textarea>
+                            <span class="error-msg" id="err-e-producto">
+                                <i class="ri-error-warning-line"></i> La descripción es obligatoria
+                            </span>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-reset" data-close-modal="modal-editar">
+                    <i class="ri-close-line"></i> Cancelar
+                </button>
+                <button type="submit" form="form-editar" class="btn-submit">
+                    <i class="ri-save-line"></i> Guardar Cambios
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal: Confirmar Eliminación-->
+    <div id="modal-eliminar" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="modal-eliminar-title">
+        <div class="modal modal-confirm">
+            <div class="modal-header modal-header-danger">
+                <h3 id="modal-eliminar-title"><i class="ri-delete-bin-line"></i> Eliminar Emprendimiento</h3>
+                <button type="button" class="modal-close" data-close-modal="modal-eliminar" aria-label="Cerrar">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-confirm-text">
+                    ¿Estás seguro de eliminar <strong id="del-nombre">este emprendimiento</strong>?
+                    Esta acción no se puede deshacer.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-reset" data-close-modal="modal-eliminar">
+                    <i class="ri-close-line"></i> Cancelar
+                </button>
+                <button type="button" id="btn-confirmar-eliminar" class="btn-danger">
+                    <i class="ri-delete-bin-line"></i> Sí, eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!--Toast Notificactions-->
     <div id="toast" class="toast" role="alert" aria-live="polite">
+
         <i class="ri-checkbox-circle-line"></i>
         <div class="toast-text">
             <strong></strong>

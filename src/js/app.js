@@ -206,6 +206,14 @@ function cardHTML(e) {
             <div class="card-estado">
                 <span class="badge ${estadoBadge}">${e.estado}</span>
             </div>
+            <div class="card-actions">
+                <button type="button" class="card-action-btn" data-action="edit" data-id="${e.id}" aria-label="Editar ${e.nombre}">
+                    <i class="ri-edit-2-line"></i>
+                </button>
+                <button type="button" class="card-action-btn danger" data-action="delete" data-id="${e.id}" aria-label="Eliminar ${e.nombre}">
+                    <i class="ri-delete-bin-line"></i>
+                </button>
+            </div>
         </div>
         <div class="emp-card-body">
             <div class="emp-card-category">
@@ -285,7 +293,7 @@ function renderTabla(filter = '', category = '') {
     if (data.length === 0) {
         tbody.innerHTML =
             `<tr>
-        <td colspan="7" class="table-empty">
+        <td colspan="8" class="table-empty">
             <i class="ri-inbox-line" style="font-size:2rem;color:#ccc;display:block;margin-bottom:8px">
             </i>No hay registros.
         </td>
@@ -305,6 +313,14 @@ function renderTabla(filter = '', category = '') {
             <td><span class="badge ${catBadge}">${e.categoria}</span></td>
             <td class="td-ventas">${formatUSD(e.ventasMensuales)}</td>
             <td><span class="badge ${estadoBadge}">${e.estado}</span></td>
+            <td class="td-actions">
+                <button type="button" class="table-action-btn" data-action="edit" data-id="${e.id}" aria-label="Editar ${e.nombre}">
+                    <i class="ri-edit-2-line"></i>
+                </button>
+                <button type="button" class="table-action-btn danger" data-action="delete" data-id="${e.id}" aria-label="Eliminar ${e.nombre}">
+                    <i class="ri-delete-bin-line"></i>
+                </button>
+            </td>
         </tr>`;
     }).join('');
 }
@@ -389,6 +405,129 @@ function openModal(id){
 
 function closeModal(id){
     document.getElementById(id)?.classList.remove('open');
+}
+
+/*Editar emprendimiento*/
+
+function buscarEmprendimiento(id){
+    return APP.emprendimientos.find(e => e.id === id);
+}
+
+function abrirModalEditar(id){
+    const e = buscarEmprendimiento(id);
+    if(!e){
+        showToast('No encontrado', 'El emprendimiento ya no existe.', 'error');
+        return;
+    }
+    const form = document.getElementById('form-editar');
+    if(!form) return;
+
+    document.getElementById('e-id').value = e.id;
+    document.getElementById('e-codigo').value = e.codigo;
+    document.getElementById('e-nombre').value = e.nombre;
+    document.getElementById('e-responsable').value = e.responsable;
+    document.getElementById('e-carrera').value = e.carrera;
+    document.getElementById('e-categoria').value = e.categoria;
+    document.getElementById('e-estado').value = e.estado;
+    document.getElementById('e-ventas').value = e.ventasMensuales;
+    document.getElementById('e-producto').value = e.productoServicio;
+
+    //limpiar errores previos
+    form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    form.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+
+    openModal('modal-editar');
+}
+
+function initFormEditar(){
+    const form = document.getElementById('form-editar');
+    if(!form) return;
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        if(!validarForm(form)) return;
+
+        const id = document.getElementById('e-id').value;
+        const emp = buscarEmprendimiento(id);
+        if(!emp){
+            showToast('No encontrado', 'El emprendimiento ya no existe.', 'error');
+            closeModal('modal-editar');
+            return;
+        }
+
+        const categoria = getVal('e-categoria');
+        emp.nombre = getVal('e-nombre');
+        emp.responsable = getVal('e-responsable');
+        emp.carrera = getVal('e-carrera');
+        emp.categoria = categoria;
+        emp.estado = getVal('e-estado');
+        emp.ventasMensuales = Number(getVal('e-ventas'));
+        emp.productoServicio = getVal('e-producto');
+        emp.emoji = CATEGORIA_EMOJI[categoria] || '⭐';
+
+        guardarEnLS();
+        closeModal('modal-editar');
+        showToast('¡Actualizado!', `"${emp.nombre}" fue editado exitosamente.`);
+
+        //refrescar las vistas visibles
+        renderHeroStats();
+        renderCards(getVal2('search-emp'), getVal2('filter-cat'));
+        renderDashboard();
+        renderTabla(getVal2('search-dash'), getVal2('filter-dash'));
+    });
+}
+
+//obtiene el valor de un input/select sin lanzar error si no existe (para filtros activos)
+function getVal2(id){
+    const el = document.getElementById(id);
+    return el ? el.value : '';
+}
+
+/*Eliminar emprendimiento*/
+
+let idAEliminar = null;
+
+function abrirModalEliminar(id){
+    const e = buscarEmprendimiento(id);
+    if(!e){
+        showToast('No encontrado', 'El emprendimiento ya no existe.', 'error');
+        return;
+    }
+    idAEliminar = id;
+    document.getElementById('del-nombre').textContent = `"${e.nombre}"`;
+    openModal('modal-eliminar');
+}
+
+function confirmarEliminar(){
+    if(!idAEliminar) return;
+    const emp = buscarEmprendimiento(idAEliminar);
+    APP.emprendimientos = APP.emprendimientos.filter(e => e.id !== idAEliminar);
+    guardarEnLS();
+    closeModal('modal-eliminar');
+    showToast('Eliminado', emp ? `"${emp.nombre}" fue eliminado del sistema.` : 'El registro fue eliminado.');
+    idAEliminar = null;
+
+    //refrescar las vistas visibles
+    renderHeroStats();
+    renderCards(getVal2('search-emp'), getVal2('filter-cat'));
+    renderDashboard();
+    renderTabla(getVal2('search-dash'), getVal2('filter-dash'));
+}
+
+//delegacion de eventos para botones de editar/eliminar en cards y tabla
+function initAccionesCRUD(){
+    document.addEventListener('click', e => {
+        const btn = e.target.closest('[data-action]');
+        if(!btn) return;
+        const id = btn.dataset.id;
+        if(!id) return;
+
+        if(btn.dataset.action === 'edit') abrirModalEditar(id);
+        if(btn.dataset.action === 'delete') abrirModalEliminar(id);
+    });
+
+    const btnConfirmar = document.getElementById('btn-confirmar-eliminar');
+    if(btnConfirmar) btnConfirmar.addEventListener('click', confirmarEliminar);
 }
 
 /*Filtros*/
@@ -484,6 +623,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initNav();
     initForm();
+    initFormEditar();
+    initAccionesCRUD();
     initFilters();
     initContacto();
     initLiveValidation();
